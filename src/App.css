@@ -20,3 +20,20 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+
+* {
+  background-image: url("./images/hogwartsBackground.jpg");
+}
+
+.generalText {
+  font-size: 23px;
+  font-family: 'Niconne', cursive;
+  color: #F6F2F1;
+}
+
+.question {
+  font-size: 40px;
+  /* color: #ECCC3B; */
+}

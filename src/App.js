@@ -4,6 +4,8 @@ import './App.css';
 import QuestionBoard from './components/QuestionBoard';
 import Result from './components/Result';
 
+
+
 const questions = [
   {
     prompt: 'Do you make friends easily?',
@@ -66,25 +68,25 @@ function App() {
   }, [userTraits])
   
   return (
-    <>
-    <div>
-      {
-        (quizStarted)
-          ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
-          : <button onClick={() => setQuizStarted(true)}>Sort</button>
-      }
-    </div>
+    <div class="generalText">
+      <div>
+        {
+          (quizStarted)
+            ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
+            : <button onClick={() => setQuizStarted(true)}>Sort</button>
+        }
+      </div>
 
-    <div>
-      {
-        (quizFinished)
-        ? <Result userTraits={userTraits} setUserTraits={setUserTraits}/>
-        : <p></p>
-      }
-    </div>
-   
+      <div>
+        {
+          (quizFinished)
+          ? <Result userTraits={userTraits} setUserTraits={setUserTraits}/>
+          : <p></p>
+        }
+      </div>
     
-    </>
+    
+    </div>
   );
 }
 

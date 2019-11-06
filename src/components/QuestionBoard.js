@@ -13,7 +13,7 @@ function QuestionBoard({ currentQuestion, setUserTraits, userTraits, quizFinishe
     if (!quizFinished) {
        return (
         <>
-            <h3>Q. {currentQuestion.prompt}</h3>
+            <h3 class="question">Q. {currentQuestion.prompt}</h3>
             <button
                 onClick={handleResponse('yes')}
             >
