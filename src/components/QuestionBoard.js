@@ -16,11 +16,13 @@ function QuestionBoard({ currentQuestion, setUserTraits, userTraits, quizFinishe
             <h3 class="question">Q. {currentQuestion.prompt}</h3>
             <button
                 onClick={handleResponse('yes')}
+                class="buttonStyling"
             >
                 yes
             </button>
             <button
                 onClick={handleResponse('no')}
+                class="buttonStyling"
             >
                 no
             </button>

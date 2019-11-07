@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import QuestionBoard from './components/QuestionBoard';
 import Result from './components/Result';
+import CharactersHouses from './components/CharactersHouses';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const questions = [
@@ -68,12 +70,13 @@ function App() {
   }, [userTraits])
   
   return (
-    <div class="generalText">
+    <div class="generalText text-center">
+      <h1>Hogwarts House Sorting</h1>
       <div>
         {
           (quizStarted)
             ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
-            : <button onClick={() => setQuizStarted(true)}>Sort</button>
+            : <button onClick={() => setQuizStarted(true)} class="buttonStyling">Sort</button>
         }
       </div>
 

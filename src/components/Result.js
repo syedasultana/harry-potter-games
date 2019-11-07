@@ -151,7 +151,7 @@ function Result({ userTraits, setUserTraits }) {
         } else if (userTraits.includes('friendly') && userTraits.includes('nonstatus')) {
             setUsersHouse('Hufflepuff'); //output hufflepuff
             setHasBeenSorted(true);
-        } else if (userTraits.includes('reckless') && userTraits.includes('status')) {
+        } else if ((userTraits.includes('reckless') | userTraits.includes('friendly')) && userTraits.includes('status')) {
             setUsersHouse('Gryffindor'); //output gryffindor
             setHasBeenSorted(true);
         } else {
@@ -173,7 +173,7 @@ function Result({ userTraits, setUserTraits }) {
                     <h4>Founder: {(houses.find(x => x.houseName === usersHouse)).founder}</h4>
                     <p>{(houses.find(x => x.houseName === usersHouse)).description}</p>
                     <p>Common room location: {(houses.find(x => x.houseName === usersHouse)).commonRoomLocation}</p>
-                    <img src={(houses.find(x => x.houseName === usersHouse)).gif} height="200" width="360"></img>
+                    <img src={(houses.find(x => x.houseName === usersHouse)).gif} height="200" width="380"></img>
                   </div>
                 : <p>You are being sorted</p>
             }
