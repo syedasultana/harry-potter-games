@@ -87,7 +87,17 @@ function App() {
           : <p></p>
         }
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     
+      <CharactersHouses />
     
     </div>
   );
