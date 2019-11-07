@@ -4,9 +4,18 @@ import './App.css';
 import QuestionBoard from './components/QuestionBoard';
 import Result from './components/Result';
 import CharactersHouses from './components/CharactersHouses';
+import NavBar from './components/NavBar';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { InputGroup, FormControl } from 'react-bootstrap/';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // Link,
+  // useHistory
+} from "react-router-dom";
 
 const questions = [
   {
@@ -57,6 +66,7 @@ function App() {
   const [counter, setCounter] = React.useState(0);
   const [quizFinished, setQuizFinished] = React.useState(false);
   const [quizStarted, setQuizStarted] = React.useState(false);
+  const [usersHouse, setUsersHouse] = React.useState('noHouse');
 
   //when userTraits is updated, update the current question to the next question
   React.useEffect(() => {
@@ -71,33 +81,53 @@ function App() {
   
   return (
     <div class="generalText text-center">
-      <h1>Hogwarts House Sorting</h1>
-      <div>
-        {
-          (quizStarted)
-            ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
-            : <button onClick={() => setQuizStarted(true)} class="buttonStyling">Sort</button>
-        }
-      </div>
+      <h1 id="mainTitle">Hogwarts House Sorting</h1>
 
-      <div>
-        {
-          (quizFinished)
-          ? <Result userTraits={userTraits} setUserTraits={setUserTraits}/>
-          : <p></p>
-        }
-      </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    
-      <CharactersHouses />
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/characters-houses">
+            <CharactersHouses usersHouse={usersHouse} />
+          </Route>
+          <Route path="/">
+            <div>
+              {
+                (quizStarted)
+                  ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
+                  : <div>
+                      <InputGroup className="mb-3"
+                        placeholder="e.g Ron Weasley"
+                        onChange={(event) => {
+                          sessionStorage.setItem('username', event.target.value);
+                        }}
+                      >
+                        <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-sizing-default" >name</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                        />
+                      </InputGroup>
+                      <button onClick={() => setQuizStarted(true)} class="buttonStyling">Sort</button>
+                    </div>
+              }
+            </div>
+            <div>
+              {
+                (quizFinished)
+                ? <Result 
+                    userTraits={userTraits} 
+                    setUserTraits={setUserTraits} 
+                    usersHouse={usersHouse} 
+                    setUsersHouse={setUsersHouse} 
+                  />
+                : <p></p>
+              }
+            </div>
+          </Route>
+        </Switch>
+      </Router>
     
     </div>
   );

@@ -23,7 +23,7 @@
 
 
 
-* {
+body {
   background-image: url("./images/hogwartsBackground.jpg");
 }
 
@@ -42,4 +42,24 @@
 
 .buttonStyling {
   color: #F3DE85;
+}
+
+#mainTitle {
+  font-size: 50px;
+}
+
+.topnav {
+  border: 2px solid #912231;
+  border-radius: 4px;
+  padding: .5rem;
+  text-align: center;
+  margin: 0% 20%;
+  background-color: #912231;
+}
+
+.elements {
+  border-radius: 4px;
+  padding: .5rem;
+  font-size: 30px;
+  
 }

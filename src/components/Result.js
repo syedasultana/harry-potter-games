@@ -87,8 +87,7 @@ function getOccurrence(array, value) {
     return count;
 }
 
-function Result({ userTraits, setUserTraits }) {
-    const [usersHouse, setUsersHouse] = React.useState('noHouse');
+function Result({ userTraits, setUserTraits, usersHouse, setUsersHouse }) {
     const [hasBeenSorted, setHasBeenSorted] = React.useState(false);
 
     //if userTraits contains any "" elements then get rid of them 
@@ -167,14 +166,15 @@ function Result({ userTraits, setUserTraits }) {
         <div>
             {
                 (hasBeenSorted)
-                ? <div>
-                    <h1>Your House Is {usersHouse}!!!</h1>
-                    <img src={(houses.find(x => x.houseName === usersHouse)).houseLogo} height="270" width="210"></img>
-                    <h4>Founder: {(houses.find(x => x.houseName === usersHouse)).founder}</h4>
-                    <p>{(houses.find(x => x.houseName === usersHouse)).description}</p>
-                    <p>Common room location: {(houses.find(x => x.houseName === usersHouse)).commonRoomLocation}</p>
-                    <img src={(houses.find(x => x.houseName === usersHouse)).gif} height="200" width="380"></img>
-                  </div>
+                ? 
+                    <div>
+                        <h1>Well {sessionStorage.getItem('username')}, your house is {usersHouse}!!!</h1>
+                        <img src={(houses.find(x => x.houseName === usersHouse)).houseLogo} height="270" width="210"></img>
+                        <h4>Founder: {(houses.find(x => x.houseName === usersHouse)).founder}</h4>
+                        <p>{(houses.find(x => x.houseName === usersHouse)).description}</p>
+                        <p>Common room location: {(houses.find(x => x.houseName === usersHouse)).commonRoomLocation}</p>
+                        <img src={(houses.find(x => x.houseName === usersHouse)).gif} height="200" width="380"></img>
+                    </div>
                 : <p>You are being sorted</p>
             }
         </div>

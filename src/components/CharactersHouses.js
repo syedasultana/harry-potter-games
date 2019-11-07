@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 
-function CharactersHouses({ }) {
+function CharactersHouses({ usersHouse }) {
     const [data, setData] = React.useState('');
     //const [result, setResult] = React.useState('');
 
@@ -18,12 +18,19 @@ function CharactersHouses({ }) {
             .then(response => {
                 console.log(response)
                 setData(response.data);
+                if (usersHouse === house) {
+                    let addOn = {
+                        name: sessionStorage.getItem('username')
+                    }
+                    const updatedDataHistory = [...response.data, addOn]
+                    setData(updatedDataHistory);
+                }
             });
     }
    
        return (
         <>
-            <p>see the characters that belong to each house</p>
+            <p>See the characters that belong to each house!</p>
             <button
                 onClick={() => {
                     getCharacters('Gryffindor');
@@ -66,9 +73,7 @@ function CharactersHouses({ }) {
                 {
                     (data !== '')
                     ? data.map(datum => (
-                        <div>
-                            <p>{datum.name}</p>
-                        </div>
+                        <p>{datum.name}</p>
                     ))
                     : <p>no data to display</p>
                 }
