@@ -40,9 +40,10 @@ body {
   /* color: #ECCC3B; */
 }
 
-.buttonStyling {
+/* .buttonStyling {
   color: #F3DE85;
-}
+  
+} */
 
 #mainTitle {
   font-size: 50px;
@@ -63,3 +64,5 @@ body {
   font-size: 30px;
   
 }
+
+

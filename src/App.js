@@ -5,9 +5,11 @@ import QuestionBoard from './components/QuestionBoard';
 import Result from './components/Result';
 import CharactersHouses from './components/CharactersHouses';
 import NavBar from './components/NavBar';
+import Character from './components/Character';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { InputGroup, FormControl } from 'react-bootstrap/';
+import Button from 'react-bootstrap/Button';
 
 import {
   BrowserRouter as Router,
@@ -89,13 +91,17 @@ function App() {
           <Route path="/characters-houses">
             <CharactersHouses usersHouse={usersHouse} />
           </Route>
+          <Route path="/character/:id">
+            <Character />
+          </Route>
           <Route path="/">
             <div>
               {
                 (quizStarted)
                   ? <QuestionBoard {...{ currentQuestion, setUserTraits, userTraits, quizFinished }} />
                   : <div>
-                      <InputGroup className="mb-3"
+                      <InputGroup
+                        className="mb-3"
                         placeholder="e.g Ron Weasley"
                         onChange={(event) => {
                           sessionStorage.setItem('username', event.target.value);
@@ -109,20 +115,13 @@ function App() {
                         aria-describedby="inputGroup-sizing-default"
                         />
                       </InputGroup>
-                      <button onClick={() => setQuizStarted(true)} class="buttonStyling">Sort</button>
+                      <Button variant="outline-warning" onClick={() => setQuizStarted(true)}>Sort</Button>
                     </div>
               }
             </div>
             <div>
               {
-                (quizFinished)
-                ? <Result 
-                    userTraits={userTraits} 
-                    setUserTraits={setUserTraits} 
-                    usersHouse={usersHouse} 
-                    setUsersHouse={setUsersHouse} 
-                  />
-                : <p></p>
+                (quizFinished) && <Result {...{userTraits, setUserTraits, usersHouse, setUsersHouse }} />
               }
             </div>
           </Route>

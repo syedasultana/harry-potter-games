@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+
 
 function CharactersHouses({ usersHouse }) {
     const [data, setData] = React.useState('');
@@ -20,6 +23,7 @@ function CharactersHouses({ usersHouse }) {
                 setData(response.data);
                 if (usersHouse === house) {
                     let addOn = {
+                        _id: 'wingardumleviosa',
                         name: sessionStorage.getItem('username')
                     }
                     const updatedDataHistory = [...response.data, addOn]
@@ -31,41 +35,41 @@ function CharactersHouses({ usersHouse }) {
        return (
         <>
             <p>See the characters that belong to each house!</p>
-            <button
+            <Button
+                variant="outline-warning"
                 onClick={() => {
                     getCharacters('Gryffindor');
                 }}
-                class="buttonStyling"
             >
                 Gryffindor
-            </button>
+            </Button>
 
-            <button
+            <Button
+                variant="outline-warning"
                 onClick={() => {
                     getCharacters('Slytherin');
                 }}
-                class="buttonStyling"
             >
                 Slytherin
-            </button>
+            </Button>
 
-            <button
+            <Button
+                variant="outline-warning"
                 onClick={() => {
                     getCharacters('Hufflepuff');
                 }}
-                class="buttonStyling"
             >
                 Hufflepuff
-            </button>
+            </Button>
 
-            <button
+            <Button
+                variant="outline-warning"
                 onClick={() => {
                     getCharacters('Ravenclaw');
                 }}
-                class="buttonStyling"
             >
                 Ravenclaw
-            </button>
+            </Button>
 
 
 
@@ -73,7 +77,10 @@ function CharactersHouses({ usersHouse }) {
                 {
                     (data !== '')
                     ? data.map(datum => (
-                        <p>{datum.name}</p>
+                        // <p>{datum.name}</p>
+                        <p>
+                            <Link to={`/character/${datum._id}`}>{datum.name}</Link>
+                        </p>
                     ))
                     : <p>no data to display</p>
                 }
