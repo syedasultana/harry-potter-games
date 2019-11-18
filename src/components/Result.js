@@ -23,7 +23,7 @@ const houses = [
         houseName: 'Slytherin',
         commonRoomLocation: 'In the dungeons near the lake',
         description: 'A Slytherin is cunning and ambitious with a hunger for power. You share the same house as Draco Malfoy, Tom Riddle and Severus Snape.',
-        founder: 'Salazaar Slytherin',
+        founder: 'Salazar Slytherin',
         houseLogo: slytherinLogo,
         gif: slytherinGif
     },
@@ -117,6 +117,10 @@ function Result({ userTraits, setUserTraits, usersHouse, setUsersHouse }) {
 
     
     React.useEffect(() => {
+        //refactor this all into functions
+        // function gryffindorOrSlytherin() {
+
+        // }
         //check if gryffindor or slytherin
         if (mostFrequentElement(userTraits) == 'status') {
             let valueToRemove = 'status';

@@ -6,6 +6,7 @@ import Result from './components/Result';
 import CharactersHouses from './components/CharactersHouses';
 import NavBar from './components/NavBar';
 import Character from './components/Character';
+import GuessWho from './components/GuessWho/GuessWho';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { InputGroup, FormControl } from 'react-bootstrap/';
@@ -93,6 +94,9 @@ function App() {
           </Route>
           <Route path="/character/:id">
             <Character />
+          </Route>
+          <Route path="/guess-who">
+            <GuessWho />
           </Route>
           <Route path="/">
             <div>

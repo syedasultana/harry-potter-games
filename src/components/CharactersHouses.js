@@ -79,10 +79,10 @@ function CharactersHouses({ usersHouse }) {
                     ? data.map(datum => (
                         // <p>{datum.name}</p>
                         <p>
-                            <Link to={`/character/${datum._id}`}>{datum.name}</Link>
+                            <Link to={`/character/${datum._id}`} class="link">{datum.name}</Link>
                         </p>
                     ))
-                    : <p>no data to display</p>
+                    : null
                 }
             </div>
         </>
