@@ -1,13 +1,14 @@
 import React from 'react';
 import CharacteristicCell from './CharacteristicCell';
+import { useSelector } from "react-redux";
 
 function CharacteristicsTable() {
-    
+    const numberOfAsksLeft = useSelector(storeState => storeState.numberOfAsksLeft);
    
   return (
     <>
+      <p>*Click on characteristic to eliminate ({numberOfAsksLeft})</p>
       <p>Characteristics:</p>
-      <p>*Click on characteristic to eliminate</p>
       <div class="row">
         <h4>Hair Colours:</h4>
         <CharacteristicCell feature={'blonde'} property={'hairColour'}/>
