@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import { reducer } from "./redux";
 
 const store = createStore(
-    reducer
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 function Root() {
