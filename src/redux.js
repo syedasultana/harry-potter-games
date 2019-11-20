@@ -2,14 +2,18 @@ import harry from './images/guessWhoImages/harry-potter.jpg';
 import ron from './images/guessWhoImages/ron-weasley.webp';
 import luna from './images/guessWhoImages/luna-lovegood.jpg';
 import ginny from './images/guessWhoImages/ginny-weasley.bmp';
-import lilly from './images/guessWhoImages/lilly-potter.jpg'
-import severus from './images/guessWhoImages/severus-snape.jpg'
-import albus from './images/guessWhoImages/albus-dumbledore.jpg'
-import draco from './images/guessWhoImages/draco-malfoy.jpg'
-import rubeus from './images/guessWhoImages/rubeus-hagrid.png'
-import bellatrix from './images/guessWhoImages/bellatrix-lestrange.jpg'
-import fred from './images/guessWhoImages/fred-weasley.jpg'
-import lucius from './images/guessWhoImages/lucius-malfoy.jpg'
+import lilly from './images/guessWhoImages/lilly-potter.jpg';
+import severus from './images/guessWhoImages/severus-snape.jpg';
+import albus from './images/guessWhoImages/albus-dumbledore.jpg';
+import draco from './images/guessWhoImages/draco-malfoy.jpg';
+import rubeus from './images/guessWhoImages/rubeus-hagrid.png';
+import bellatrix from './images/guessWhoImages/bellatrix-lestrange.jpg';
+import fred from './images/guessWhoImages/fred-weasley.jpg';
+import lucius from './images/guessWhoImages/lucius-malfoy.jpg';
+import hermione from './images/guessWhoImages/hermione.jpg';
+import rita from './images/guessWhoImages/rita.jpg';
+import cho from './images/guessWhoImages/cho.jpg';
+import dolores from './images/guessWhoImages/umbridge.png';
 
 export const initialState = {
     hiddenCharacter: '',
@@ -19,7 +23,7 @@ export const initialState = {
             hairColour: 'brown',
             eyeColour: 'green',
             gender: 'male',
-            glasses: true,
+            bloodStatus: 'half-blood',
             imgLink: harry
         },
         {
@@ -27,6 +31,7 @@ export const initialState = {
             hairColour: 'red',
             eyeColour: 'unknown',
             gender: 'male',
+            bloodStatus: 'pure-blood',
             imgLink: ron
         },
         {
@@ -34,6 +39,7 @@ export const initialState = {
             hairColour: 'blonde',
             eyeColour: 'blue',
             gender: 'female',
+            bloodStatus: 'pure-blood',
             imgLink: luna
         },
         {
@@ -41,6 +47,7 @@ export const initialState = {
             hairColour: 'red',
             eyeColour: 'brown',
             gender: 'female',
+            bloodStatus: 'pure-blood',
             imgLink: ginny
         },
         {
@@ -48,6 +55,7 @@ export const initialState = {
             hairColour: 'red',
             eyeColour: 'green',
             gender: 'female',
+            bloodStatus: 'muggle-born',
             imgLink: lilly
         },
         {
@@ -55,16 +63,14 @@ export const initialState = {
             hairColour: 'black',
             eyeColour: 'unknown',
             gender: 'male',
-            longNose: true,
+            bloodStatus: 'half-blood',
             imgLink: severus
         },
         {
             name: 'Albus Dumbledore',
             eyeColour: 'blue',
             gender: 'male',
-            glasses: true,
-            longNose: true,
-            beard: true,
+            bloodStatus: 'half-blood',
             imgLink: albus
         },
         {
@@ -72,6 +78,7 @@ export const initialState = {
             hairColour: 'blonde',
             eyeColour: 'unknown',
             gender: 'male',
+            bloodStatus: 'pure-blood',
             imgLink: draco
         },
         {
@@ -79,7 +86,7 @@ export const initialState = {
             hairColour: 'brown',
             eyeColour: 'unknown',
             gender: 'male',
-            beard: true,
+            bloodStatus: 'unknown',
             imgLink: rubeus
         },
         {
@@ -87,6 +94,7 @@ export const initialState = {
             hairColour: 'black',
             eyeColour: 'unknown',
             gender: 'female',
+            bloodStatus: 'pure-blood',
             imgLink: bellatrix
         },
         {
@@ -94,6 +102,7 @@ export const initialState = {
             hairColour: 'red',
             eyeColour: 'unknown',
             gender: 'male',
+            bloodStatus: 'pure-blood',
             imgLink: fred
         },
         {
@@ -101,7 +110,40 @@ export const initialState = {
             hairColour: 'blonde',
             eyeColour: 'unknown',
             gender: 'male',
+            bloodStatus: 'pure-blood',
             imgLink: lucius
+        },
+        {
+            name: 'Hermonie Granger',
+            hairColour: 'brown',
+            eyeColour: 'brown',
+            gender: 'female',
+            bloodStatus: 'muggle-born',
+            imgLink: hermione
+        },
+        {
+            name: 'Cho Chang',
+            hairColour: 'black',
+            eyeColour: 'brown',
+            gender: 'female',
+            bloodStatus: 'pure-blood',
+            imgLink: cho
+        },
+        {
+            name: 'Rita Skeeter',
+            hairColour: 'blonde',
+            eyeColour: 'green',
+            gender: 'female',
+            bloodStatus: 'half-blood',
+            imgLink: rita
+        },
+        {
+            name: 'Dolores Umbridge',
+            hairColour: 'brown',
+            eyeColour: 'brown',
+            gender: 'female',
+            bloodStatus: 'half-blood',
+            imgLink: dolores
         }
     ],
     numberOfAsksLeft: 3,

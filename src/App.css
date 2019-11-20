@@ -72,11 +72,23 @@ body {
 .charactersGrid {
   border-style: solid;
   border-color: #F3DE85;
+  overflow-x: hidden;
   font-size: 15px;
   padding: 20px;
 }
 
-p, h4 {
+.characteristicsTable {
+  border-style: solid;
+  border-color: #F3DE85;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.characterCell {
+  padding: 19px;
+}
+
+p, h4, h3 {
   margin: 10px;
   padding: 5px;
   content: 5px;

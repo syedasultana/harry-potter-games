@@ -9,7 +9,8 @@ function CharactersGrid() {
     const hiddenCharacter = useSelector(storeState => storeState.hiddenCharacter);
     const characters = useSelector(storeState => storeState.characters);
     const guessedCharacter = useSelector(storeState => storeState.guessedCharacter);
-    console.log(characters, 'chars') //temp
+    console.log(guessedCharacter, 'guessedChar boolean') //temp
+
 
     React.useEffect(() => {
         if (hiddenCharacter === '') {
@@ -21,36 +22,51 @@ function CharactersGrid() {
             console.log('random character: ', randomCharacter);
             dispatch({ type: "SET_HIDDEN_CHARACTER", payload: randomCharacter });
         } 
-      }, [hiddenCharacter])
+    }, [hiddenCharacter])
 
-      
-   
-       return (
-        <div class="text-center">
-            <p>Characters:</p>
+    if (guessedCharacter) {
+        return (
             <div class="charactersGrid">
                 <div class="row">
-                    {
-                        characters.slice(0, 4).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
-                        
-                    }
+                    <CharacterCell name={hiddenCharacter.name} imgLink={`../.${hiddenCharacter.imgLink}`} />
                 </div>
-                <div class="row">
-                    {
-                        characters.slice(4, 8).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
-                        
-                    }
-                </div> 
-                <div class="row">
+            </div>
+        )
+    } else {
+        return (
+            <div class="text-center">
+                <p>Characters:</p>
+                <div class="charactersGrid container">
+                    <div class="row justify-content-md-center">
                         {
-                            characters.slice(8, 12).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                            characters.slice(0, 4).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
                             
                         }
+                    </div>
+                    <div class="row justify-content-md-center">
+                        {
+                            characters.slice(4, 8).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                            
+                        }
+                    </div> 
+                    <div class="row justify-content-md-center">
+                            {
+                                characters.slice(8, 12).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                                
+                            }
+                    </div> 
+                    <div class="row justify-content-md-center">
+                            {
+                                characters.slice(12, 16).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                                
+                            }
+                    </div> 
                 </div> 
-               
-            </div> 
-        </div>
-       ); 
+            </div>
+        ); 
+    }
+   
+       
    
   }
 
