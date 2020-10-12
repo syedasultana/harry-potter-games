@@ -94,3 +94,16 @@ p, h4, h3 {
   content: 5px;
   background-color: #153B73;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #F3DE85;
+  margin: 0 auto;
+  max-width: 60vw;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}

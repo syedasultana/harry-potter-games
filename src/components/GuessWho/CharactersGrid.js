@@ -36,30 +36,30 @@ function CharactersGrid() {
         return (
             <div class="text-center">
                 <p>Characters:</p>
-                <div class="charactersGrid container">
-                    <div class="row justify-content-md-center">
+                <div className="wrapper">
+                    <div className="row">
                         {
-                            characters.slice(0, 4).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                            formatRow(characters, 0, 4)
                             
                         }
                     </div>
-                    <div class="row justify-content-md-center">
+                    <div className="row">
                         {
-                            characters.slice(4, 8).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+                            formatRow(characters, 4, 8)
                             
                         }
                     </div> 
-                    <div class="row justify-content-md-center">
-                            {
-                                characters.slice(8, 12).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
-                                
-                            }
+                    <div className="row">
+                        {
+                            formatRow(characters, 8, 12)
+                            
+                        }
                     </div> 
-                    <div class="row justify-content-md-center">
-                            {
-                                characters.slice(12, 16).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
-                                
-                            }
+                    <div className="row">
+                        {
+                            formatRow(characters, 12, 16)
+                            
+                        }
                     </div> 
                 </div> 
             </div>
@@ -68,6 +68,12 @@ function CharactersGrid() {
    
        
    
-  }
+}
+
+function formatRow(array, start, end) {
+    return array.slice(start, end).map(character => <CharacterCell name={character.name} imgLink={`../.${character.imgLink}`} />)
+}
+
+
 
 export default CharactersGrid;

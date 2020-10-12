@@ -167,9 +167,7 @@ export const reducer = (state = initialState, action) => {
             };
         case "ELIMINATE_CHARACTERS":
             let charactersLeft = [];
-            //first check if the hiddenCharacter has this characterstic 
             if (state.hiddenCharacter[ action.payload.property ]) {
-                //if so return only characters that have it else opposite
                 if (state.hiddenCharacter[ action.payload.property ] === action.payload.feature) {
                     charactersLeft = state.characters.filter(character => character[ action.payload.property ] === action.payload.feature);
                 } else {
@@ -177,8 +175,6 @@ export const reducer = (state = initialState, action) => {
                 }
             } else {
                 console.log(`${state.hiddenCharacter.name} does not have a ${action.payload.property}`)
-                //charactersLeft will be equal to only the characters that do no have this property or have this property but not equal to the same feature
-                // charactersLeft = state.characters.filter(character => !(character[ action.payload.property ]) || character[ action.payload.property ] !== action.payload.feature);
                 charactersLeft = state.characters.filter(character => handleNonExistentProperty(character, action.payload.property, action.payload.feature));
             }
             return {

@@ -15,18 +15,20 @@ function QuestionBoard({ currentQuestion, setUserTraits, userTraits, quizFinishe
        return (
         <>
             <h3 class="question">Q. {currentQuestion.prompt}</h3>
-            <button
+            <Button
                 onClick={handleResponse('yes')}
                 class="buttonStyling"
+                variant="outline-warning"
             >
                 yes
-            </button>
-            <button
+            </Button>
+            <Button
                 onClick={handleResponse('no')}
                 class="buttonStyling"
+                variant="outline-warning"
             >
                 no
-            </button>
+            </Button>
         </>
        ); 
     } else {
